@@ -12,3 +12,5 @@
 
 ## Reporting a Vulnerability
 please report in the issues tab or email me at buttertheidiot@gmail.com. 
+## How I Fix Bugs
+If the version is supported, I will upload a security pack. I do need a version number specified in order to fix it.
