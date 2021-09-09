@@ -10,6 +10,9 @@
 | 1.2 <   | :white_check_mark: | IDK               |
 | proto   | :x:                | ENDED: 6-9-2021   |
 | 1.2 SP 2| :x:                | ENDED: 9-9-2021   |
+| 1.3 FE  | ✅                |  15-9-2021         |
+| 1.3 SE  | ✅                 | 18-9-2021         |
+| 1.3 TE  | ✅                 | 28-9-2021        |
 
 ## Reporting a Vulnerability
 please report in the issues tab or email me at buttertheidiot@gmail.com. 
