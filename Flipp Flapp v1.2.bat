@@ -29,14 +29,15 @@ SET "pipe[bdy]=║"
 SET "pipe[top]=╥"
 SET "pipe[btm]=╨"
 SET "pipe[max]=%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%"
-SET "cloud[1]=%dn:n=2%"
-SET "cloud[2]=%dn:n=1%█%dn:n=1%%bk:n=1%"
+SET "cloud[1]=%dn:n=2%█"
+SET "cloud[2]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[3]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[5]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[6]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[7]=%dn:n=2%"
 SET "cloud[8]="/🟫" "\🟫"
+
 
 FOR %%G in (col bird) DO (
     FOR %%B in (!%%G[full]!) DO (
@@ -62,8 +63,8 @@ DEL "%~dpn0.quit" 2>NUL
 
 :START
 SETLOCAL
-TITLE Spinning Rage 1.3 FE 
-ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.3 FE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
+TITLE Spinning Rage 1.3 TE
+ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.3 TE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
 ECHO Press W to Jump!
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
@@ -74,7 +75,7 @@ ENDLOCAL&SET "score[high]=%score%"
 GOTO :START
 
 :GAME
-TITLE Press W to Jump- Spinning Rage v1.3
+TITLE Press W to Jump- Spinning Rage v1.3 TE
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
