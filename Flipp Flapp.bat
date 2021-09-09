@@ -59,9 +59,9 @@ DEL "%~dpn0.quit" 2>NUL
 
 :START
 SETLOCAL
-TITLE Spinning Rage 1.2 Closed Alpha
+TITLE Spinning Rage 1.2 Service Pack 2
 ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.2 %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
-ECHO Press W to Jump!
+ECHO Press W to Jump! 
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
 IF %score% GTR %score[high]% (
@@ -75,7 +75,7 @@ TITLE Press W to Jump- Spinning Rage
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
-        SET "bird[jmp]=4"
+        SET "bird[jmp]="4
         SET "input="
     )
     %every:#=5% (
