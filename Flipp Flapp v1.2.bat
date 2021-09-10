@@ -29,11 +29,11 @@ SET "pipe[bdy]=║"
 SET "pipe[top]=╥"
 SET "pipe[btm]=╨"
 SET "pipe[max]=%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%"
-SET "cloud[1]=%dn:n=2%█"
+SET "cloud[1]=%dn:n=2%"
 SET "cloud[2]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[3]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
-SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%"
-SET "cloud[5]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
+SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
+SET "cloud[5]=%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[6]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[7]=%dn:n=2%"
 SET "cloud[8]="/🟫" "\🟫" 
@@ -159,7 +159,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=250% (
-        SET /A "pipe[rand]=!RANDOM! %% 5"
+        SET /A "pipe[rand]=!RANDOM! %% 7"
         IF !pipe[rand]! EQU 0 (
             SET /A "pipe[num]+=1", "pipe[rand]=(!RANDOM! %% 15) + 1", "d[num]=(9 * pipe[rand]) - 1", "d[adj]=((21 - (pipe[rand] + 5)) * 9) - 1", "d[max]=pipe[rand] + 5"
             SET "pipe[!pipe[num]!]=!d[num]!;!d[adj]!;29;!pipe[rand]!;!d[max]!"
