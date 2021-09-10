@@ -29,14 +29,14 @@ SET "pipe[bdy]=║"
 SET "pipe[top]=╥"
 SET "pipe[btm]=╨"
 SET "pipe[max]=%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%%pipe[bdy]%%bk:n=1%%dn:n=1%"
-SET "cloud[1]=%dn:n=2%"
+SET "cloud[1]=%dn:n=2%█"
 SET "cloud[2]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[3]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
-SET "cloud[5]=%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
+SET "cloud[5]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[6]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[7]=%dn:n=2%"
-SET "cloud[8]="" "" 
+SET "cloud[8]="█" "" 
 
 
 FOR %%G in (col bird) DO (
@@ -63,8 +63,8 @@ DEL "%~dpn0.quit" 2>NUL
 
 :START
 SETLOCAL
-TITLE Spinning Rage 1.4 FE
-ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.4 FE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
+TITLE Spinning Rage 1.5 FE
+ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.5 FE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
 ECHO Press W to Jump!
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
@@ -75,7 +75,7 @@ ENDLOCAL&SET "score[high]=%score%"
 GOTO :START
 
 :GAME
-TITLE Press W to Jump- Spinning Rage v1.3 TE
+TITLE Press W to Jump- Spinning Rage v1.5 FE
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
@@ -159,7 +159,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=250% (
-        SET /A "pipe[rand]=!RANDOM! %% 7"
+        SET /A "pipe[rand]=!RANDOM! %% 10"
         IF !pipe[rand]! EQU 0 (
             SET /A "pipe[num]+=1", "pipe[rand]=(!RANDOM! %% 15) + 1", "d[num]=(9 * pipe[rand]) - 1", "d[adj]=((21 - (pipe[rand] + 5)) * 9) - 1", "d[max]=pipe[rand] + 5"
             SET "pipe[!pipe[num]!]=!d[num]!;!d[adj]!;29;!pipe[rand]!;!d[max]!"
