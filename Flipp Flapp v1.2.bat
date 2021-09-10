@@ -24,7 +24,7 @@ SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press
 SET "every=SET /A "d[num]=frame %% #"& IF ^!d[num]^! EQU 0"
 
 SET col[full]="500;163;225" "203;204;124" "121;199;173"
-SET bird[full]="\█" "─█" "/█"
+SET bird[full]="\" "─" "/"
 SET "pipe[bdy]=║"
 SET "pipe[top]=╥"
 SET "pipe[btm]=╨"
@@ -36,7 +36,7 @@ SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[5]=%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[6]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[7]=%dn:n=2%"
-SET "cloud[8]="/🟫" "\🟫" 
+SET "cloud[8]="" "" 
 
 
 FOR %%G in (col bird) DO (
