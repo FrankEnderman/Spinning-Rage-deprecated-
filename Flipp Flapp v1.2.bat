@@ -159,7 +159,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=250% (
-        SET /A "pipe[rand]=!RANDOM! %% 10"
+        SET /A "pipe[rand]=!RANDOM! %% 15"
         IF !pipe[rand]! EQU 0 (
             SET /A "pipe[num]+=1", "pipe[rand]=(!RANDOM! %% 15) + 1", "d[num]=(9 * pipe[rand]) - 1", "d[adj]=((21 - (pipe[rand] + 5)) * 9) - 1", "d[max]=pipe[rand] + 5"
             SET "pipe[!pipe[num]!]=!d[num]!;!d[adj]!;29;!pipe[rand]!;!d[max]!"
@@ -167,7 +167,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=275% (
-        SET /A "cld[rand]=!RANDOM! %% 3"
+        SET /A "cld[rand]=!RANDOM! %% 5"
         IF !cld[rand]! EQU 0 (
             SET /A "cld[num]+=1", "cld[rand]=(!RANDOM! %% 17) + 2"
             SET "cld[!cld[num]!]=!cld[rand]!;1;29"
