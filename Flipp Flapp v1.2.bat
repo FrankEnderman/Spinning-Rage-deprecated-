@@ -63,8 +63,8 @@ DEL "%~dpn0.quit" 2>NUL
 
 :START
 SETLOCAL
-TITLE Spinning Rage 1.5 FE
-ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.5 FE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
+TITLE Spinning Rage 1.5 SE
+ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.5 SE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
 ECHO Press W to Jump!
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
@@ -75,7 +75,7 @@ ENDLOCAL&SET "score[high]=%score%"
 GOTO :START
 
 :GAME
-TITLE Press W to Jump- Spinning Rage v1.5 FE
+TITLE Press W to Jump- Spinning Rage v1.5 SE
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
@@ -159,7 +159,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=250% (
-        SET /A "pipe[rand]=!RANDOM! %% 15"
+        SET /A "pipe[rand]=!RANDOM! %% 12"
         IF !pipe[rand]! EQU 0 (
             SET /A "pipe[num]+=1", "pipe[rand]=(!RANDOM! %% 15) + 1", "d[num]=(9 * pipe[rand]) - 1", "d[adj]=((21 - (pipe[rand] + 5)) * 9) - 1", "d[max]=pipe[rand] + 5"
             SET "pipe[!pipe[num]!]=!d[num]!;!d[adj]!;29;!pipe[rand]!;!d[max]!"
