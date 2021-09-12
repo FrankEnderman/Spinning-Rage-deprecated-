@@ -1,9 +1,11 @@
 @ECHO OFF
+
 SETLOCAL ENABLEDELAYEDEXPANSION
 
 IF "%1" == "" (
     >NUL REG ADD HKCU\Console\Flappy /V FaceName /T REG_SZ /D "Lucida Console" /F
     >NUL REG ADD HKCU\Console\Flappy /V FontSize /T REG_DWORD /D 0x00180008 /F
+	
     START "Flappy" "%~0" Font
     EXIT
 ) else IF "%1" == "Font" (
@@ -20,7 +22,7 @@ SET "up=%ESC%[nA"
 SET "dn=%ESC%[nB"
 SET "bk=%ESC%[nD"
 SET "nx=%ESC%[nC"
-SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press W to Try Again :(^&(COPY NUL "%~dpn0.quit")^>NUL^&EXIT ^!HighScore^!"
+SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press W to try. Good Luck Next time! :(^&(COPY NUL "%~dpn0.quit")^>NUL^&EXIT ^!HighScore^!"
 SET "every=SET /A "d[num]=frame %% #"& IF ^!d[num]^! EQU 0"
 
 SET col[full]="500;163;225" "203;204;124" "121;199;173"
@@ -35,7 +37,7 @@ SET "cloud[3]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[5]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[6]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
-SET "cloud[7]=%dn:n=2%"
+SET "cloud[7]=%dn:n=2%█"
 SET "cloud[8]="█" "" 
 
 
@@ -184,10 +186,12 @@ FOR /L %%C in () do (
     FOR /F "tokens=*" %%A in ('CHOICE /C:W /N') DO (
         IF exist "%~dpn0.quit" (
             DEL "%~dpn0.quit"
+			echo  score: !score[high]! > %~dpn0 info.INFO
             EXIT
         )
         <NUL SET /P ".=%%A"
     )
 )
 
-GOTO :EOF		
+GOTO :EOF	
+	
