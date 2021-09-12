@@ -13,9 +13,14 @@
 | 1.3 FE  | ✅                |  15-9-2021         |
 | 1.3 SE  | ✅                 | 18-9-2021         |
 | 1.3 TE  | ✅                 | 28-9-2021        |
-| 1.4     | ✅                 | 12-10-2021        |
+| 1.4     | :x:                 | 12-10-2021        |
 | 1.4 FE  | ✅                 | 16-10-2021        |
 | 1.4 SE  | ✅                 | 20-10-2021        |
+| 1.5 FE  | ✅                 | 12-11-2021        |
+| 1.5 SE  | ✅                 | 18-11-2021        |
+| 1.5 TE  | ✅                 | 20-11-2021        |
+| 1.6 FE  | NOT RELEASED        | 12-12-2021       |
+| 1.6 SE  | NOT RELEASED        | 20-12-2021       |
 
 ## Reporting a Vulnerability
 please report in the issues tab or email me at buttertheidiot@gmail.com. 
