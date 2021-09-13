@@ -26,7 +26,7 @@ SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press
 SET "every=SET /A "d[num]=frame %% #"& IF ^!d[num]^! EQU 0"
 
 SET col[full]="500;163;225" "203;204;124" "121;199;173"
-SET bird[full]="\" "─" "/"
+SET bird[full]="\█" "─█" "/█"
 SET "pipe[bdy]=║"
 SET "pipe[top]=╥"
 SET "pipe[btm]=╨"
@@ -38,7 +38,7 @@ SET "cloud[4]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[5]=█%dn:n=1%%bk:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[6]=%dn:n=1%█%dn:n=1%%bk:n=1%█"
 SET "cloud[7]=%dn:n=2%█"
-SET "cloud[8]="█" "" 
+SET "cloud[8]="█" "█" 
 
 
 FOR %%G in (col bird) DO (
@@ -65,7 +65,7 @@ DEL "%~dpn0.quit" 2>NUL
 
 :START
 SETLOCAL
-TITLE Spinning Rage 1.5 SE
+TITLE Spinning Rage 1.6 FE
 ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.5 SE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
 ECHO Press W to Jump!
 PAUSE>NUL
@@ -77,7 +77,7 @@ ENDLOCAL&SET "score[high]=%score%"
 GOTO :START
 
 :GAME
-TITLE Press W to Jump- Spinning Rage v1.5 SE
+TITLE Press W to Jump- Spinning Rage v1.6 FE
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
@@ -186,7 +186,7 @@ FOR /L %%C in () do (
     FOR /F "tokens=*" %%A in ('CHOICE /C:W /N') DO (
         IF exist "%~dpn0.quit" (
             DEL "%~dpn0.quit"
-			echo  score: !score[high]! > %~dpn0 info.INFO
+			echo !score[high]! > %~dpn0 info.INFO
             EXIT
         )
         <NUL SET /P ".=%%A"
