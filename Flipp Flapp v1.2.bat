@@ -67,7 +67,7 @@ DEL "%~dpn0.quit" 2>NUL
 SETLOCAL
 TITLE Spinning Rage 1.6 FE
 ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.5 SE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
-ECHO Press W to Jump!
+ECHO Press W to fly
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
 IF %score% GTR %score[high]% (
@@ -161,7 +161,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=250% (
-        SET /A "pipe[rand]=!RANDOM! %% 12"
+        SET /A "pipe[rand]=!RANDOM! %% 5"
         IF !pipe[rand]! EQU 0 (
             SET /A "pipe[num]+=1", "pipe[rand]=(!RANDOM! %% 15) + 1", "d[num]=(9 * pipe[rand]) - 1", "d[adj]=((21 - (pipe[rand] + 5)) * 9) - 1", "d[max]=pipe[rand] + 5"
             SET "pipe[!pipe[num]!]=!d[num]!;!d[adj]!;29;!pipe[rand]!;!d[max]!"
@@ -169,7 +169,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=275% (
-        SET /A "cld[rand]=!RANDOM! %% 5"
+        SET /A "cld[rand]=!RANDOM! %% 3"
         IF !cld[rand]! EQU 0 (
             SET /A "cld[num]+=1", "cld[rand]=(!RANDOM! %% 17) + 2"
             SET "cld[!cld[num]!]=!cld[rand]!;1;29"
@@ -186,7 +186,8 @@ FOR /L %%C in () do (
     FOR /F "tokens=*" %%A in ('CHOICE /C:W /N') DO (
         IF exist "%~dpn0.quit" (
             DEL "%~dpn0.quit"
-			echo !score[high]! > %~dpn0 info.INFO
+			var INF == ver
+			echo !score[high]! , %INF%> %~dpn0.
             EXIT
         )
         <NUL SET /P ".=%%A"
