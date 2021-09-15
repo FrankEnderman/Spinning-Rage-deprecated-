@@ -81,7 +81,7 @@ TITLE Press W to Jump- Spinning Rage v1.6 FE
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
-        SET "bird[jmp]=5"
+        SET "bird[jmp]=4"
         SET "input="
     )
     %every:#=5% (
