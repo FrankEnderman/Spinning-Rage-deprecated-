@@ -187,7 +187,7 @@ FOR /L %%C in () do (
         IF exist "%~dpn0.quit" (
             DEL "%~dpn0.quit"
 			var INF == ver
-			echo !score[high]! , %INF%> %~dpn0.
+			echo !score[high]! , %INF%> %~dpn0.FECS
             EXIT
         )
         <NUL SET /P ".=%%A"
