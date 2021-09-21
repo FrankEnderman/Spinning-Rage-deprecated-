@@ -169,7 +169,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=275% (
-        SET /A "cld[rand]=!RANDOM! %% 3"
+        SET /A "cld[rand]=!RANDOM! %% 1"
         IF !cld[rand]! EQU 0 (
             SET /A "cld[num]+=1", "cld[rand]=(!RANDOM! %% 17) + 2"
             SET "cld[!cld[num]!]=!cld[rand]!;1;29"
