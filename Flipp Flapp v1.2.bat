@@ -67,7 +67,7 @@ DEL "%~dpn0.quit" 2>NUL
 SETLOCAL
 TITLE Spinning Rage 1.7 FE
 ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.7 FE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
-ECHO Press W to keep flying 
+ECHO Press W to GO HIGH
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
 IF %score% GTR %score[high]% (
