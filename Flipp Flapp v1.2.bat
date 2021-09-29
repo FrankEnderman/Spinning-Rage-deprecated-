@@ -26,7 +26,7 @@ SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press
 SET "every=SET /A "d[num]=frame %% #"& IF ^!d[num]^! EQU 0"
 
 SET col[full]="500;163;225" "203;204;124" "121;199;173"
-SET bird[full]="\█" "─█" "/█"
+SET bird[full]="\█" "─▄" "/▀"
 SET "pipe[bdy]=║"
 SET "pipe[top]=╥"
 SET "pipe[btm]=╨"
