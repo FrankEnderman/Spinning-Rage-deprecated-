@@ -22,7 +22,7 @@ SET "up=%ESC%[nA"
 SET "dn=%ESC%[nB"
 SET "bk=%ESC%[nD"
 SET "nx=%ESC%[nC"
-SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press W to try. Good Luck Next time! :(^&(COPY NUL "%~dpn0.quit")^>NUL^&EXIT ^!HighScore^!"
+SET "exit=ECHO %dn:n=1%%ESC%[48;2;55;128;128m%ESC%[38;2;212;172;87m%nx:n=4%Press W to try. Good Luck Next time! ^&(COPY NUL "%~dpn0.quit")^>NUL^&EXIT ^!HighScore^!"
 SET "every=SET /A "d[num]=frame %% #"& IF ^!d[num]^! EQU 0"
 
 SET col[full]="500;163;225" "203;204;124" "121;199;173"
@@ -65,9 +65,9 @@ DEL "%~dpn0.quit" 2>NUL
 
 :START
 SETLOCAL
-TITLE Spinning Rage 1.7 FE
+TITLE Spinning Rage Finale
 ECHO %ESC%[?25l%ESC%[48;2;55;128;128m%ESC%[2J%ESC%[38;2;212;172;87m%ESC%[8;11HSpinning Rage 1.7 FE %ESC%[9;9HHigh Score : !score[high]!%ESC%[11;9H[Press W]%ESC%[%bird[y]%;10H%ESC%[38;2;!col[%bird[rand]%]!m%bird[cur]%%ESC%[23;1H%ESC%[48;2;50;168;82m%ESC%[38;2;133;110;48m▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_▲_%ESC%[0m
-ECHO Press W to GO HIGH
+ECHO Press W to start flying
 PAUSE>NUL
 "%~F0" CONTROL W >"%temp%\%~n0_signal.txt" | "%~F0" GAME <"%temp%\%~n0_signal.txt"&SET "score=!ERRORLEVEL!"
 IF %score% GTR %score[high]% (
@@ -77,7 +77,7 @@ ENDLOCAL&SET "score[high]=%score%"
 GOTO :START
 
 :GAME
-TITLE Press W to Jump- Spinning Rage v1.7 FE
+TITLE Press W to Jump- Spinning Rage Finale
 FOR /L %%# in () DO (
     SET /P "input="
     IF defined input (
@@ -161,7 +161,7 @@ FOR /L %%# in () DO (
         )
     )
     %every:#=250% (
-        SET /A "pipe[rand]=!RANDOM! %% 5"
+        SET /A "pipe[rand]=!RANDOM! %% 3"
         IF !pipe[rand]! EQU 0 (
             SET /A "pipe[num]+=1", "pipe[rand]=(!RANDOM! %% 15) + 1", "d[num]=(9 * pipe[rand]) - 1", "d[adj]=((21 - (pipe[rand] + 5)) * 9) - 1", "d[max]=pipe[rand] + 5"
             SET "pipe[!pipe[num]!]=!d[num]!;!d[adj]!;29;!pipe[rand]!;!d[max]!"
